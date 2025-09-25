@@ -2,44 +2,51 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Elenco lezioni</title>
+  <title>Lezioni</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 40px; }
-    h1 { color: #333; }
-    ul { list-style-type: none; padding: 0; }
-    li { margin: 8px 0; }
-    a { text-decoration: none; color: #0066cc; }
-    a:hover { text-decoration: underline; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background: #333;
+      color: white;
+      padding: 20px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 30px auto;
+      max-width: 600px;
+    }
+    li {
+      margin: 10px 0;
+    }
+    a {
+      text-decoration: none;
+      color: #333;
+      padding: 10px 15px;
+      background: white;
+      border-radius: 8px;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+    a:hover {
+      background: #333;
+      color: white;
+    }
   </style>
 </head>
 <body>
-  <h1>Elenco lezioni</h1>
-  <ul id="lista"></ul>
-
-  <script>
-    const owner = "argotien-hue";   // il tuo username GitHub
-    const repo = "lezioni";         // nome del repo
-    const branch = "main";          // branch principale
-
-    fetch(`https://api.github.com/repos/${owner}/${repo}/contents/`)
-      .then(res => res.json())
-      .then(files => {
-        const lista = document.getElementById("lista");
-        files
-          .filter(f => f.name.endsWith(".html") && f.name !== "index.html")
-          .forEach(f => {
-            const li = document.createElement("li");
-            const a = document.createElement("a");
-            a.href = f.name;
-            a.textContent = f.name;
-            li.appendChild(a);
-            lista.appendChild(li);
-          });
-      })
-      .catch(err => {
-        document.getElementById("lista").innerHTML = "<li>Errore nel caricamento</li>";
-        console.error(err);
-      });
-  </script>
+  <header>
+    <h1>Lezioni Online</h1>
+    <p>Seleziona una lezione dall’elenco</p>
+  </header>
+  <ul>
+    <li><a href="markmap_lezione.1.Farneti.html">Lezione 1 – Farneti</a></li>
+  </ul>
 </body>
 </html>
